@@ -17,6 +17,11 @@ const SignUp = () => {
   })
 
   const navigate = useNavigate()
+  const [isInputFirstname, setInputFirstname] = useState(false)
+  const [isInputLastname, setInputLastname] = useState(false)
+  const [isInputEmail, setInputEmail] = useState(false)
+  const [isInputPassword, setInputPassword] = useState(false)
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -51,34 +56,51 @@ const SignUp = () => {
          <div className=' flex flex-col sm:px-10 relative pb-8'>
             <input type="text" id='firstname' className=' bg-primary border-b h-10 font-poppins text-white focus:outline-none focus:border-b-2 focus:border-blue-400 transition-colors peer'
             autoComplete='off'
+            placeholder=' '
             value={user.firstname}
-            onChange={(e) => setUser({...user, firstname: e.target.value})}/>
-            <label htmlFor="firstname" className=' absolute left-10 top-1 text-font-color tracking-wider cursor-text peer-focus:text-xs peer-focus:-top-3 transition-all '>
-              Firstname</label>     
+            onChange={(e) => setUser({...user, firstname: e.target.value})}
+            onFocus={() => setInputFirstname(true)}
+            onBlur={() => setInputFirstname(false)}/>
+            <label htmlFor="firstname" 
+            className={`absolute left-10 top-1 text-font-color tracking-wider cursor-text ${isInputFirstname || user.firstname ? 'text-xs -top-3 text-font-color transition' : ''}`}
+            style={{ transition: 'top 0.2s, font-size 0.2s, color 0.2s' }}>
+              Firstname</label>    
           </div>
           <div className=' flex flex-col sm:px-10 relative pb-8'>
             <input type="text" id='lastname' className=' bg-primary border-b h-10 font-poppins text-white focus:outline-none focus:border-b-2 focus:border-blue-400 transition-colors peer'
             autoComplete='off'
             value={user.lastname}
-            onChange={(e) => setUser({...user, lastname: e.target.value})}/>
-            <label htmlFor="lastname" className=' absolute left-10 top-1 text-font-color tracking-wider cursor-text peer-focus:text-xs peer-focus:-top-3 transition-all '>
-              Lastname</label>   
+            onChange={(e) => setUser({...user, lastname: e.target.value})}
+            onFocus={() => setInputLastname(true)}
+            onBlur={() => setInputLastname(false)}/>
+            <label htmlFor="lastname" 
+            className={`absolute left-10 top-1 text-font-color tracking-wider cursor-text ${isInputLastname || user.lastname ? 'text-xs -top-3 text-font-color transition' : ''}`}
+            style={{ transition: 'top 0.2s, font-size 0.2s, color 0.2s' }}>
+              Lastname</label>    
           </div>
           <div className=' flex flex-col sm:px-10 relative pb-8'>
             <input type="text" id='email' className=' bg-primary border-b h-10 font-poppins text-white focus:outline-none focus:border-b-2 focus:border-blue-400 transition-colors peer'
             autoComplete='off'
             value={user.email}
-            onChange={(e) => setUser({...user, email: e.target.value})}/>
-            <label htmlFor="email" className=' absolute left-10 top-1 text-font-color tracking-wider cursor-text peer-focus:text-xs peer-focus:-top-3 transition-all '>
-              Email</label>    
+            onChange={(e) => setUser({...user, email: e.target.value})}
+            onFocus={() => setInputEmail(true)}
+            onBlur={() => setInputEmail(false)}/>
+            <label htmlFor="email" 
+            className={`absolute left-10 top-1 text-font-color tracking-wider cursor-text ${isInputEmail || user.email ? 'text-xs -top-3 text-font-color transition' : ''}`}
+            style={{ transition: 'top 0.2s, font-size 0.2s, color 0.2s' }}>
+              Email</label>     
           </div>
           <div className=' flex flex-col sm:px-10 relative pb-8'>
             <input type="password" id='password' className=' bg-primary border-b h-10 font-poppins text-white focus:outline-none focus:border-b-2 focus:border-blue-400 transition-colors peer'
             autoComplete='off'
             value={user.password}
-            onChange={(e) => setUser({...user, password: e.target.value})}/>
-            <label htmlFor="password" className=' absolute left-10 top-1 text-font-color tracking-wider cursor-text peer-focus:text-xs peer-focus:-top-3 transition-all '>
-              Password</label>     
+            onChange={(e) => setUser({...user, password: e.target.value})}
+            onFocus={() => setInputPassword(true)}
+            onBlur={() => setInputPassword(false)}/>
+            <label htmlFor="password" 
+            className={`absolute left-10 top-1 text-font-color tracking-wider cursor-text ${isInputPassword || user.password ? 'text-xs -top-3 text-font-color transition' : ''}`}
+            style={{ transition: 'top 0.2s, font-size 0.2s, color 0.2s' }}>
+              Password</label>       
           </div>
           <div className=' sm:px-10'>
             <button className=' bg-button-color w-full h-10 text-white font-palanquin font-normal tracking-wide'>SIGN IN</button>
