@@ -54,7 +54,7 @@ const SignUp = () => {
         </div>
         <form action="" onSubmit={handleSubmit}>
          <div className=' flex flex-col sm:px-10 relative pb-8'>
-            <input type="text" id='firstname' className=' bg-primary border-b h-10 font-poppins text-white focus:outline-none focus:border-b-2 focus:border-blue-400 transition-colors peer'
+            <input type="text" id='firstname' className=' bg-primary border-b h-10 font-poppins text-white focus:outline-none focus:border-b-2 focus:border-button-color transition-colors peer'
             autoComplete='off'
             placeholder=' '
             value={user.firstname}
@@ -62,45 +62,49 @@ const SignUp = () => {
             onFocus={() => setInputFirstname(true)}
             onBlur={() => setInputFirstname(false)}/>
             <label htmlFor="firstname" 
-            className={`absolute left-10 top-1 text-font-color tracking-wider cursor-text ${isInputFirstname || user.firstname ? 'text-xs -top-3 text-font-color transition' : ''}`}
+            className={`absolute left-10 top-1 text-font-color tracking-wider cursor-text ${isInputFirstname || user.firstname ? 'text-xs -top-[12px] text-button-color transition' : ''}`}
             style={{ transition: 'top 0.2s, font-size 0.2s, color 0.2s' }}>
               Firstname</label>    
           </div>
           <div className=' flex flex-col sm:px-10 relative pb-8'>
-            <input type="text" id='lastname' className=' bg-primary border-b h-10 font-poppins text-white focus:outline-none focus:border-b-2 focus:border-blue-400 transition-colors peer'
+            <input type="text" id='lastname' className=' bg-primary border-b h-10 font-poppins text-white focus:outline-none focus:border-b-2 focus:border-button-color transition-colors peer'
             autoComplete='off'
             value={user.lastname}
             onChange={(e) => setUser({...user, lastname: e.target.value})}
             onFocus={() => setInputLastname(true)}
             onBlur={() => setInputLastname(false)}/>
             <label htmlFor="lastname" 
-            className={`absolute left-10 top-1 text-font-color tracking-wider cursor-text ${isInputLastname || user.lastname ? 'text-xs -top-3 text-font-color transition' : ''}`}
+            className={`absolute left-10 top-1 text-font-color tracking-wider cursor-text ${isInputLastname || user.lastname ? 'text-xs -top-[13px] text-button-color transition' : ''}`}
             style={{ transition: 'top 0.2s, font-size 0.2s, color 0.2s' }}>
               Lastname</label>    
           </div>
           <div className=' flex flex-col sm:px-10 relative pb-8'>
-            <input type="text" id='email' className=' bg-primary border-b h-10 font-poppins text-white focus:outline-none focus:border-b-2 focus:border-blue-400 transition-colors peer'
+            <input type="text" id='email' className=' bg-primary border-b h-10 font-poppins text-white focus:outline-none focus:border-b-2 focus:border-button-color transition-colors peer'
             autoComplete='off'
             value={user.email}
             onChange={(e) => setUser({...user, email: e.target.value})}
             onFocus={() => setInputEmail(true)}
             onBlur={() => setInputEmail(false)}/>
             <label htmlFor="email" 
-            className={`absolute left-10 top-1 text-font-color tracking-wider cursor-text ${isInputEmail || user.email ? 'text-xs -top-3 text-font-color transition' : ''}`}
+            className={`absolute left-10 top-1 text-font-color tracking-wider cursor-text ${isInputEmail || user.email ? 'text-xs -top-[13px] text-button-color transition' : ''}`}
             style={{ transition: 'top 0.2s, font-size 0.2s, color 0.2s' }}>
               Email</label>     
           </div>
           <div className=' flex flex-col sm:px-10 relative pb-8'>
-            <input type="password" id='password' className=' bg-primary border-b h-10 font-poppins text-white focus:outline-none focus:border-b-2 focus:border-blue-400 transition-colors peer'
+            <input type="password" id='password' className=' bg-primary border-b h-10 font-poppins text-white focus:outline-none focus:border-b-2 focus:border-button-color transition-colors peer'
             autoComplete='off'
             value={user.password}
             onChange={(e) => setUser({...user, password: e.target.value})}
             onFocus={() => setInputPassword(true)}
             onBlur={() => setInputPassword(false)}/>
             <label htmlFor="password" 
-            className={`absolute left-10 top-1 text-font-color tracking-wider cursor-text ${isInputPassword || user.password ? 'text-xs -top-3 text-font-color transition' : ''}`}
+            className={`absolute left-10 top-1 text-font-color tracking-wider cursor-text ${isInputPassword || user.password ? 'text-xs -top-[13px] text-button-color transition' : ''}`}
             style={{ transition: 'top 0.2s, font-size 0.2s, color 0.2s' }}>
               Password</label>       
+          </div>
+          <div class="flex items-center pb-8 sm:px-10">
+              <input id="link-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+              <label for="link-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">terms and conditions</a>.</label>
           </div>
           <div className=' sm:px-10'>
             <button className=' bg-button-color w-full h-10 text-white font-palanquin font-normal tracking-wide'>SIGN IN</button>
@@ -123,7 +127,7 @@ const SignUp = () => {
         <div className=' w-full sm:px-10 flex gap-5 justify-center py-10'>
           <span className=' text-[#8492a5]'>
             Already have account?</span>
-          <a href="/" className=' text-blue-500'>
+          <a href="/" className=' text-blue-400'>
             Sign in</a>
         </div>
       </div>

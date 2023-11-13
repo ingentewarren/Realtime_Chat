@@ -32,6 +32,7 @@ export default {
               "3rd-color": "#676f9d",
               "font-color": "#8492a5",
               "button-color": "#f9b17a",
+              "dark-color": "#20243b",
 
           },
           boxShadow: {
